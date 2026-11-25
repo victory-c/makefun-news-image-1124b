@@ -69,7 +69,6 @@ class Canvas:
 
     def text(self, text, x, baseline, role='body', color=INK, tracking=0):
         glyphs = self.fonts[role]['glyphs']
-        start_x = x
         bounds = [float('inf'),float('inf'),float('-inf'),float('-inf')]
         for char in text:
             advance, left, top, w, h, offset = glyphs[char]

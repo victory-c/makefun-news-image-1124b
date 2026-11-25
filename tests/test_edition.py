@@ -1,7 +1,6 @@
 # SPDX-License-Identifier: MIT
 """Standard-library tests for file integrity, determinism, and editorial layout."""
 import hashlib
-import json
 import os
 from pathlib import Path
 import struct
@@ -15,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 sys.dont_write_bytecode = True
 from main import render
-from raster import Canvas, INK, PAPER
+
 
 
 def parse_png(data):
