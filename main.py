@@ -22,6 +22,9 @@ def render():
     label(c,'ONE DAY. SEVEN STORIES. A WORLD IN VIEW.',36,34)
     globe(c,970,29,12)
     c.text('THE WORLD TODAY',32,104,'mast')
+    c.line(889,52,889,106,RULE,1)
+    c.text('24',911,88,'stat',RED)
+    label(c,'NOV 2026',908,107)
     c.line(36,121,988,121,INK,2)
     c.text('TUESDAY 24 NOVEMBER 2026',36,147,'date')
     c.text('GLOBAL EDITION  /  24.11.26',700,146,'small',MUTED)
@@ -49,11 +52,11 @@ def render():
 
     c.line(36,582,988,582,INK,1.5)
     label(c,'03 / EUROPE + NORTH AFRICA',36,607)
-    c.text('War reaches',35,643,'card')
-    c.text('the Mediterranean',35,674,'card')
+    c.text('Italy warns of',35,643,'card')
+    c.text('war’s wider reach',35,674,'card')
     ship(c,39,691)
-    c.wrap('Italy voices concern over Ukraine’s strikes on Russian ships off '
-           'Libya. Rome warns against the war’s spread.',36,768,298,'body',leading=23)
+    c.wrap('Rome warns against escalation after Ukraine’s weekend strikes '
+           'on Russian ships off Libya.',36,768,298,'body',leading=23)
     c.text('THE GUARDIAN  /  24 NOV',36,869,'tiny',MUTED)
 
     c.line(350,601,350,872,RULE,.8)
@@ -73,18 +76,20 @@ def render():
     c.text('at five-year high',698,674,'card')
     c.text('6,929',698,730,'stat',RED)
     mine(c,922,689)
-    c.wrap('Report released today records people killed or injured in 2025 '
-           'by mines and war remnants. 84% were civilians.',699,768,289,'body',leading=23)
+    c.wrap('Mine and war-remnant victims in 2025, says today’s report. Myanmar '
+           'and Syria lead; 84% were civilians.',699,768,289,'body',leading=23)
     c.text('LANDMINE MONITOR / AJ  /  24 NOV',699,869,'tiny',MUTED)
 
     c.line(36,888,988,888,INK,1.5)
     label(c,'06 / BUSINESS',36,913)
+    c.text('BBC',470,913,'tiny',MUTED)
     chip(c,36,927)
     c.text('Nvidia scrutiny',146,949,'bottom')
     c.wrap('US attorney general declines to confirm a Huang probe. Shares '
            'close down nearly 6%.',146,975,350,'small',leading=19)
     c.line(519,906,519,1000,RULE,.8)
     label(c,'07 / AFRICAN SPORT',541,913)
+    c.text('BBC SPORT',922,913,'tiny',MUTED)
     trophy(c,541,930)
     c.text('Senegal restored',629,949,'bottom')
     c.wrap('Sports court reinstates Senegal as 2025 Africa Cup of Nations '

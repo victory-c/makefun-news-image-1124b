@@ -6,7 +6,7 @@ from raster import INK, PAPER, MUTED, RED, TEAL, GOLD
 PALE = (226, 231, 220)
 ROSE = (237, 218, 203)
 
-def tent(c, x, y, size=1, color=TEAL):
+def tent(c, x, y, size: float=1, color=TEAL):
     c.polygon([(x,y),(x+32*size,y-30*size),(x+66*size,y)],color)
     c.polygon([(x+32*size,y-30*size),(x+43*size,y),(x+66*size,y)],INK)
     c.polygon([(x+25*size,y),(x+32*size,y-17*size),(x+39*size,y)],PAPER)

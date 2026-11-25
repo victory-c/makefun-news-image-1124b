@@ -51,7 +51,7 @@ class Canvas:
                     start = (y*self.w+lo)*3
                     self.pixels[start:start+(hi-lo)*3] = bytes(color)*(hi-lo)
 
-    def line(self, x1, y1, x2, y2, color=INK, width=1):
+    def line(self, x1, y1, x2, y2, color=INK, width: float=1):
         dx, dy = x2-x1, y2-y1
         length = math.hypot(dx, dy)
         if length == 0: return
@@ -70,9 +70,13 @@ class Canvas:
     def text(self, text, x, baseline, role='body', color=INK, tracking=0):
         glyphs = self.fonts[role]['glyphs']
         start_x = x
+        bounds = [float('inf'),float('inf'),float('-inf'),float('-inf')]
         for char in text:
             advance, left, top, w, h, offset = glyphs[char]
             xx, yy = round(x*SCALE)+left, round(baseline*SCALE)+top
+            if w and h:
+                bounds = [min(bounds[0],xx/SCALE),min(bounds[1],yy/SCALE),
+                          max(bounds[2],(xx+w)/SCALE),max(bounds[3],(yy+h)/SCALE)]
             for v in range(h):
                 if not 0 <= yy+v < self.h: continue
                 for u in range(w):
@@ -84,8 +88,7 @@ class Canvas:
                         old = self.pixels[p+channel]
                         self.pixels[p+channel] = (old*(255-a)+color[channel]*a+127)//255
             x += advance/SCALE+tracking
-        self.boxes.append([text,start_x,baseline-self.fonts[role]['size'],
-                           x-tracking,baseline+5,role])
+        self.boxes.append([text,*bounds,role])
         return x
 
     def wrap(self, text, x, baseline, width, role='body', color=INK, leading=24):

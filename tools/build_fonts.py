@@ -9,9 +9,9 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parents[1]
 FONTS = Path('/usr/share/fonts/truetype/dejavu')
 ROLES = {
-    'mast': ('DejaVuSerif-Bold.ttf', 65),
-    'lead': ('DejaVuSerif-Bold.ttf', 38),
-    'side': ('DejaVuSerif-Bold.ttf', 31),
+    'mast': ('DejaVuSerif-Bold.ttf', 72),
+    'lead': ('DejaVuSerif-Bold.ttf', 46),
+    'side': ('DejaVuSerif-Bold.ttf', 33),
     'card': ('DejaVuSerif-Bold.ttf', 25),
     'bottom': ('DejaVuSerif-Bold.ttf', 27),
     'stat': ('DejaVuSans-Bold.ttf', 43),
@@ -32,7 +32,7 @@ def main():
         glyphs = {}
         for char in alphabet:
             left, top, right, bottom = font.getbbox(char, anchor='ls')
-            w, h = right - left, bottom - top
+            w, h = int(right - left), int(bottom - top)
             mask = Image.new('L', (max(1, w), max(1, h)))
             ImageDraw.Draw(mask).text((-left, -top), char, font=font,
                                       fill=255, anchor='ls')
