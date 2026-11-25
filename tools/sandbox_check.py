@@ -28,6 +28,7 @@ def main():
     bot.chmod(0o555)
     commit = subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip()
     results = []
+    command = []
     for i in range(2):
         target = out/('run-%s' % (i+1))
         target.mkdir(mode=0o777)
